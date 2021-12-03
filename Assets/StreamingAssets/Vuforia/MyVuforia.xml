@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="TerzaFaccia" size="0.090000 0.044259" />
+    <ImageTarget name="SecondaFaccia" size="0.120000 0.044800" />
+    <ImageTarget name="QuartaFaccia" size="0.120000 0.044800" />
+    <ImageTarget name="PrimaFaccia" size="0.090000 0.044259" />
+    <ImageTarget name="Front" size="0.090000 0.120152" />
+  </Tracking>
+</QCARConfig>

@@ -1,0 +1,27 @@
+fileFormatVersion: 2
+guid: 67c01531b089b4aa9a2ddd13d0f2ff0f
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontNames:
+  - HK Grotesk
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 62a9a234da3134cf39a7606dcbca1cd9, type: 3}
+  - {fileID: 12800000, guid: 657e61de4bc684caca4849a6cb7ba409, type: 3}
+  - {fileID: 12800000, guid: 751f91a85c09642d6ac73906148af49f, type: 3}
+  - {fileID: 12800000, guid: f6999068f26214dbca9acec2d3cd89b5, type: 3}
+  - {fileID: 12800000, guid: 30cedb91c84034eb2b54c39035e8567a, type: 3}
+  - {fileID: 12800000, guid: 2106c3b50deb245fb9a7b73436f691df, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
