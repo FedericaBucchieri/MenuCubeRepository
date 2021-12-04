@@ -10,6 +10,7 @@ public class CategoriesListManagement : MonoBehaviour
     public GameObject currentFace;
     public GameObject categoryPosition;
     public GameObject currentCategory;
+    public static string currentCategoryName;
     private int currentIndex;
     private bool initialized = false;
 
@@ -28,6 +29,7 @@ public class CategoriesListManagement : MonoBehaviour
             // Placing the first list element in the correct position
             categoriesList[0].transform.position = categoryPosition.transform.position;
             currentCategory = categoriesList[0];
+            currentCategoryName = currentCategory.name;
 
             initialized = true;
         }
@@ -78,6 +80,7 @@ public class CategoriesListManagement : MonoBehaviour
             categoriesList[currentIndex].SetActive(true);
             categoriesList[currentIndex].transform.position = categoryPosition.transform.position;
             currentCategory = categoriesList[currentIndex];
+            currentCategoryName = currentCategory.name;
         }
         else
         {
@@ -100,6 +103,7 @@ public class CategoriesListManagement : MonoBehaviour
             categoriesList[currentIndex].SetActive(true);
             categoriesList[currentIndex].transform.position = categoryPosition.transform.position;
             currentCategory = categoriesList[currentIndex];
+            currentCategoryName = currentCategory.name;
         }
         else
         {
@@ -110,5 +114,10 @@ public class CategoriesListManagement : MonoBehaviour
     public void GoToCategoryScene()
     {
         SceneManager.LoadScene(currentCategory.name + "Scene");
+    }
+
+    public static string GetCurrentCategoryName()
+    {
+        return currentCategoryName;
     }
 }

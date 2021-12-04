@@ -14,4 +14,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/StartersScene.unity
     guid: e087343dc70d74aa0a4ddab3996d6a9d
+  - enabled: 1
+    path: Assets/Scenes/MainCoursesScene.unity
+    guid: 710c9ec2464204966b7d5afd2ee96938
+  - enabled: 1
+    path: Assets/Scenes/PizzasScene.unity
+    guid: 719aa988b369449458aabd75890e1067
+  - enabled: 1
+    path: Assets/Scenes/DessertsScene.unity
+    guid: c28e750060e0a4813b77215ec6bbaa25
+  - enabled: 1
+    path: Assets/Scenes/DrinksScene.unity
+    guid: cdd8133726fe443b593d6f1351d74925
   m_configObjects: {}
