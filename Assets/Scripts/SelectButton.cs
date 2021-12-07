@@ -24,16 +24,14 @@ public class SelectButton : MonoBehaviour
 
     public void onButtonPressed(VirtualButtonBehaviour vb)
     {
-        Debug.Log("Virtual button pressed");
-        //string currentCategoryName = CategoriesListManagement.GetCurrentCategoryName();
-        //SceneManager.LoadScene(currentCategoryName + "Scene");
+        string currentCategoryName = CategoriesListManagement.GetCurrentCategoryName();
+        SceneManager.LoadScene(currentCategoryName + "Scene");
     }
 
 
     public void onButtonReleased(VirtualButtonBehaviour vb)
     {
-        Debug.Log("VIrtual button released");
-        string currentCategoryName = CategoriesListManagement.GetCurrentCategoryName();
-        SceneManager.LoadScene(currentCategoryName + "Scene");
+        Debug.Log("Virtual button released");
+       
     }
 }

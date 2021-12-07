@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<QCARConfig xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="qcar_config.xsd">
+  <Tracking>
+    <ImageTarget name="CubeLeft" size="0.080000 0.080000" />
+    <ImageTarget name="CubeFront" size="0.080000 0.080000" />
+    <ImageTarget name="CubeRight" size="0.080000 0.080000" />
+    <ImageTarget name="CubeBack" size="0.080000 0.080000" />
+    <ImageTarget name="CubeTop" size="0.080000 0.080000" />
+  </Tracking>
+</QCARConfig>

@@ -11,9 +11,22 @@ public class CategoriesListManagement : MonoBehaviour
     public GameObject categoryPosition;
     public GameObject currentCategory;
     public static string currentCategoryName;
-    private int currentIndex;
+    private int currentIndex = 0;
     private bool initialized = false;
 
+
+    void Start()
+    {
+        for (int i = 1; i < categoriesList.Length; i++)
+        {
+            categoriesList[i].SetActive(false);
+        }
+
+        categoriesList[0].transform.position = categoryPosition.transform.position;
+        currentCategory = categoriesList[0];
+        currentCategoryName = currentCategory.name;
+        initialized = true;
+    }
 
     public void ShowFirstCategory()
     {
@@ -37,11 +50,13 @@ public class CategoriesListManagement : MonoBehaviour
 
     public void switchCategory(GameObject cubeFace)
     {
-        Debug.Log("Switch category. Cube Face: " + cubeFace.name + " Current Face: " + currentFace.name);
+
         for (int i = 0; i < categoriesList.Length; i++)
         {
+
             if (cubeFaces[i] == cubeFace)
             {
+
                 // If I moved to the previous face
                 if (i > 0 && currentFace == cubeFaces[i - 1])
                     PreviousCategory();
@@ -58,8 +73,6 @@ public class CategoriesListManagement : MonoBehaviour
                 //Update current Face
                 currentFace = cubeFace;
 
-                Debug.Log("current category: " + currentCategory.name);
-
                 break;
             }
                 
@@ -68,6 +81,8 @@ public class CategoriesListManagement : MonoBehaviour
 
     public void NextCategory()
     {
+        Debug.Log(" ************************ NEXT");
+
         if (currentIndex < categoriesList.Length - 1)
         {
             // deActivate previous food object
@@ -91,6 +106,8 @@ public class CategoriesListManagement : MonoBehaviour
 
     public void PreviousCategory()
     {
+        Debug.Log(" ************************ PREVIOUS");
+
         if (currentIndex > 0)
         {
             // deActivate previous food object

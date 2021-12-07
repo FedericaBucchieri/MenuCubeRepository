@@ -9,6 +9,8 @@ public class FoodListManagement : MonoBehaviour
     public GameObject currentFace;
     public GameObject foodPosition;
     public GameObject currentFood;
+    public static GameObject currentFoodPointer;
+    public int switchMax;
     private int currentIndex;
     private bool initialized = false;
 
@@ -21,12 +23,11 @@ public class FoodListManagement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
     public void ShowFirstFood()
     {
-        Debug.Log("initialized: " + initialized);
         if (!initialized)
         {
             // Deactivating all the food in the list except the first one
@@ -38,15 +39,15 @@ public class FoodListManagement : MonoBehaviour
             // Placing the first list element in the correct position
             foodList[0].transform.position = foodPosition.transform.position;
             currentFood = foodList[0];
-
+            currentFoodPointer = currentFood;
             initialized = true;
         }
     }
 
     public void switchFood(GameObject cubeFace)
     {
-        Debug.Log("Switch food. Cube Face: " + cubeFace.name + " Current Face: " + currentFace.name);
-        for (int i = 0; i < foodList.Length; i++)
+
+        for (int i = 0; i < switchMax; i++)
         {
             if (cubeFaces[i] == cubeFace)
             {
@@ -70,12 +71,14 @@ public class FoodListManagement : MonoBehaviour
 
                 break;
             }
-                
+
         }
     }
 
     public void NextFood()
     {
+        Debug.Log(" ************************ NEXT");
+
         if (currentIndex < foodList.Length - 1)
         {
             // deActivate previous food object
@@ -88,6 +91,7 @@ public class FoodListManagement : MonoBehaviour
             foodList[currentIndex].SetActive(true);
             foodList[currentIndex].transform.position = foodPosition.transform.position;
             currentFood = foodList[currentIndex];
+            currentFoodPointer = currentFood;
         }
         else
         {
@@ -98,6 +102,8 @@ public class FoodListManagement : MonoBehaviour
 
     public void PreviousFood()
     {
+        Debug.Log(" ************************ PREVIOUS");
+
         if (currentIndex > 0)
         {
             // deActivate previous food object
@@ -110,10 +116,36 @@ public class FoodListManagement : MonoBehaviour
             foodList[currentIndex].SetActive(true);
             foodList[currentIndex].transform.position = foodPosition.transform.position;
             currentFood = foodList[currentIndex];
+            currentFoodPointer = currentFood;
         }
         else
         {
             Debug.Log("First food in list");
         }
     }
+
+    public static GameObject GetCurrentFood()
+    {
+        return currentFoodPointer;
+    }
+
+    public void UpdateRating(int rating)
+    {
+        GameObject canvas = currentFood.transform.Find("Canvas").gameObject;
+        GameObject ratingStarsParent = canvas.transform.Find("RatingStarsSaved").gameObject;
+
+        // reset
+        for (int i = 0; i < 4; i++)
+        {
+            ratingStarsParent.transform.GetChild(i).gameObject.SetActive(false);
+        }
+
+        // new rating
+        for (int i = 0; i < rating; i++)
+        {
+            ratingStarsParent.transform.GetChild(i).gameObject.SetActive(true);
+        }
+    }
+
 }
+
