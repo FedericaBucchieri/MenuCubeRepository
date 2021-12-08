@@ -7,50 +7,56 @@ public class PlaceholderManager : MonoBehaviour
     public GameObject placeholderCube;
     public GameObject menuCube;
     public GameObject foodList;
+    public GameObject AllMenuGameObject;
     public double threeshold = 0.2;
     public bool find = false;
     public int ID = 0;
+    public int childrenIndex = 0;
 
     // Start is called before the first frame update
     void Start()
     {
 
-        //Debug.Log(MyStorage.firstOrder.name);
-
         if (ID == 1 && MyStorage.firstOrder != null)
         {
-            GameObject duplicateFood = Instantiate(MyStorage.firstOrder);
-            duplicateFood.transform.parent = placeholderCube.transform;
-            duplicateFood.transform.position = placeholderCube.transform.position;
-            duplicateFood.transform.rotation = placeholderCube.transform.rotation;
+            GameObject firstOrder = AllMenuGameObject.transform.Find(MyStorage.firstOrder).gameObject;
+            firstOrder.SetActive(true);
+            firstOrder.transform.parent = placeholderCube.transform;
+            firstOrder.transform.position = placeholderCube.transform.position;
+            firstOrder.transform.rotation = placeholderCube.transform.rotation;
         }
         else if(ID == 2 && MyStorage.secondOrder != null)
         {
-            GameObject duplicateFood = Instantiate(MyStorage.secondOrder);
-            duplicateFood.transform.parent = placeholderCube.transform;
-            duplicateFood.transform.position = placeholderCube.transform.position;
-            duplicateFood.transform.rotation = placeholderCube.transform.rotation;
+            GameObject secondOrder = AllMenuGameObject.transform.Find(MyStorage.secondOrder).gameObject;
+            secondOrder.SetActive(true);
+            secondOrder.transform.parent = placeholderCube.transform;
+            secondOrder.transform.position = placeholderCube.transform.position;
+            secondOrder.transform.rotation = placeholderCube.transform.rotation;
+
         }
         else if (ID == 3 && MyStorage.thirdOrder != null)
         {
-            GameObject duplicateFood = Instantiate(MyStorage.thirdOrder);
-            duplicateFood.transform.parent = placeholderCube.transform;
-            duplicateFood.transform.position = placeholderCube.transform.position;
-            duplicateFood.transform.rotation = placeholderCube.transform.rotation;
+            GameObject thirdOrder = AllMenuGameObject.transform.Find(MyStorage.thirdOrder).gameObject;
+            thirdOrder.SetActive(true);
+            thirdOrder.transform.parent = placeholderCube.transform;
+            thirdOrder.transform.position = placeholderCube.transform.position;
+            thirdOrder.transform.rotation = placeholderCube.transform.rotation;
         }
         else if (ID == 4 && MyStorage.forthOrder != null)
         {
-            GameObject duplicateFood = Instantiate(MyStorage.forthOrder);
-            duplicateFood.transform.parent = placeholderCube.transform;
-            duplicateFood.transform.position = placeholderCube.transform.position;
-            duplicateFood.transform.rotation = placeholderCube.transform.rotation;
+            GameObject forthOrder = AllMenuGameObject.transform.Find(MyStorage.forthOrder).gameObject;
+            forthOrder.SetActive(true);
+            forthOrder.transform.parent = placeholderCube.transform;
+            forthOrder.transform.position = placeholderCube.transform.position;
+            forthOrder.transform.rotation = placeholderCube.transform.rotation;
         }
         else if (ID == 5 && MyStorage.fifthOrder != null)
         {
-            GameObject duplicateFood = Instantiate(MyStorage.fifthOrder);
-            duplicateFood.transform.parent = placeholderCube.transform;
-            duplicateFood.transform.position = placeholderCube.transform.position;
-            duplicateFood.transform.rotation = placeholderCube.transform.rotation;
+            GameObject fifthOrder = AllMenuGameObject.transform.Find(MyStorage.fifthOrder).gameObject;
+            fifthOrder.SetActive(true);
+            fifthOrder.transform.parent = placeholderCube.transform;
+            fifthOrder.transform.position = placeholderCube.transform.position;
+            fifthOrder.transform.rotation = placeholderCube.transform.rotation;
         }
 
     }
@@ -65,10 +71,11 @@ public class PlaceholderManager : MonoBehaviour
 
             if(distance < threeshold && !find)
             {
-                if (placeholderCube.transform.childCount > 0)
+                if (placeholderCube.transform.childCount > childrenIndex)
                 {
                     // delete the previous child
-                    Destroy(placeholderCube.transform.GetChild(0).gameObject);
+                    placeholderCube.transform.GetChild(childrenIndex).gameObject.SetActive(false);
+                    childrenIndex++;
                 }
                 else { 
                     // retrieving the current food displayed
@@ -79,7 +86,7 @@ public class PlaceholderManager : MonoBehaviour
                     duplicateFood.transform.parent = placeholderCube.transform;
                     duplicateFood.transform.position = placeholderCube.transform.position;
                     duplicateFood.transform.rotation = placeholderCube.transform.rotation;
-                    SaveToStorage(duplicateFood);
+                    SaveToStorage(currentFood);
                     find = true;
 
                     StartCoroutine(StartTimer());
@@ -99,15 +106,15 @@ public class PlaceholderManager : MonoBehaviour
     private void SaveToStorage(GameObject toBeSaved)
     {
         if (ID == 1)
-            MyStorage.firstOrder = toBeSaved;
+            MyStorage.firstOrder = toBeSaved.name;
         else if (ID == 2)
-            MyStorage.secondOrder = toBeSaved;
+            MyStorage.secondOrder = toBeSaved.name;
         else if (ID == 3)
-            MyStorage.thirdOrder = toBeSaved;
+            MyStorage.thirdOrder = toBeSaved.name;
         else if (ID == 4)
-            MyStorage.forthOrder = toBeSaved;
+            MyStorage.forthOrder = toBeSaved.name;
         else if (ID == 5)
-            MyStorage.fifthOrder = toBeSaved;
+            MyStorage.fifthOrder = toBeSaved.name;
     }
 
 }

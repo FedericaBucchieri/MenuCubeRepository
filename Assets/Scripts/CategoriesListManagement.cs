@@ -99,7 +99,14 @@ public class CategoriesListManagement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Last category in list");
+            categoriesList[currentIndex].SetActive(false);
+            currentIndex = 0;
+
+            // activate next one and place it in the right position
+            categoriesList[currentIndex].SetActive(true);
+            categoriesList[currentIndex].transform.position = categoryPosition.transform.position;
+            currentCategory = categoriesList[currentIndex];
+            currentCategoryName = currentCategory.name;
         }
     }
 
@@ -124,7 +131,14 @@ public class CategoriesListManagement : MonoBehaviour
         }
         else
         {
-            Debug.Log("First category in list");
+            categoriesList[currentIndex].SetActive(false);
+            currentIndex = categoriesList.Length - 1;
+
+            // activate next one and place it in the right position
+            categoriesList[currentIndex].SetActive(true);
+            categoriesList[currentIndex].transform.position = categoryPosition.transform.position;
+            currentCategory = categoriesList[currentIndex];
+            currentCategoryName = currentCategory.name;
         }
     }
 
@@ -137,4 +151,5 @@ public class CategoriesListManagement : MonoBehaviour
     {
         return currentCategoryName;
     }
+
 }

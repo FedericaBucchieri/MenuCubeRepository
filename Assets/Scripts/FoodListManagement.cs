@@ -95,7 +95,15 @@ public class FoodListManagement : MonoBehaviour
         }
         else
         {
-            Debug.Log("Last food in list");
+            foodList[currentIndex].SetActive(false);
+            currentIndex = 0;
+
+            // activate the new one and place it in the right position
+            foodList[currentIndex].SetActive(true);
+            foodList[currentIndex].transform.position = foodPosition.transform.position;
+            currentFood = foodList[currentIndex];
+            currentFoodPointer = currentFood;
+
         }
     }
 
@@ -120,7 +128,14 @@ public class FoodListManagement : MonoBehaviour
         }
         else
         {
-            Debug.Log("First food in list");
+            foodList[currentIndex].SetActive(false);
+            currentIndex = foodList.Length - 1;
+
+            // activate the new one and place it in the right position
+            foodList[currentIndex].SetActive(true);
+            foodList[currentIndex].transform.position = foodPosition.transform.position;
+            currentFood = foodList[currentIndex];
+            currentFoodPointer = currentFood;
         }
     }
 
@@ -146,6 +161,7 @@ public class FoodListManagement : MonoBehaviour
             ratingStarsParent.transform.GetChild(i).gameObject.SetActive(true);
         }
     }
+
 
 }
 

@@ -15,5 +15,13 @@ public class SceneChanger : MonoBehaviour
         SceneManager.LoadScene("DishesListScene");
     }
 
+    public void ChangeToStartingScene()
+    {
+        SceneManager.LoadScene("Starting Scene");
+    }
 
+    public void ChangeToOrderScene()
+    {
+        SceneManager.LoadScene("OrderScene");
+    }
 }

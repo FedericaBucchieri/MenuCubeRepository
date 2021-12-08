@@ -9,7 +9,6 @@ public class RatingStars : MonoBehaviour
     public GameObject ratingCube;
     public GameObject menuCube;
     public double[] threesholds = { 0.1, 0.2, 0.3, 0.4, 0.5 };
-    public GameObject virtualButton;
     public GameObject foodList;
 
     // Start is called before the first frame update

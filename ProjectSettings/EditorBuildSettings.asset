@@ -26,4 +26,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DrinksScene.unity
     guid: cdd8133726fe443b593d6f1351d74925
+  - enabled: 1
+    path: Assets/Scenes/OrderScene.unity
+    guid: e34d7051b95c3440e82163d894bdd56f
   m_configObjects: {}

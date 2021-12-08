@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class MyStorage : MonoBehaviour
 {
-    public static GameObject firstOrder;
-    public static GameObject secondOrder;
-    public static GameObject thirdOrder;
-    public static GameObject forthOrder;
-    public static GameObject fifthOrder;
+    public static string firstOrder;
+    public static string secondOrder;
+    public static string thirdOrder;
+    public static string forthOrder;
+    public static string fifthOrder;
 }
