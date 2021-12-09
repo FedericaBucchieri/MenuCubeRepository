@@ -64,32 +64,35 @@ public class PlaceholderManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (placeholderCube.activeSelf && menuCube.activeSelf)
-        {
-
-            float distance = Vector3.Distance(placeholderCube.transform.position, menuCube.transform.position);
-
-            if(distance < threeshold && !find)
+        if (menuCube != null) {
+            if (placeholderCube.activeSelf && menuCube.activeSelf)
             {
-                if (placeholderCube.transform.childCount > childrenIndex)
+
+                float distance = Vector3.Distance(placeholderCube.transform.position, menuCube.transform.position);
+
+                if (distance < threeshold && !find)
                 {
-                    // delete the previous child
-                    placeholderCube.transform.GetChild(childrenIndex).gameObject.SetActive(false);
-                    childrenIndex++;
-                }
-                else { 
-                    // retrieving the current food displayed
-                    GameObject currentFood = FoodListManagement.GetCurrentFood();
-                    GameObject duplicateFood = Instantiate(currentFood);
+                    if (placeholderCube.transform.childCount > childrenIndex)
+                    {
+                        // delete the previous child
+                        placeholderCube.transform.GetChild(childrenIndex).gameObject.SetActive(false);
+                        childrenIndex++;
+                    }
+                    else {
+                        // retrieving the current food displayed
+                        GameObject currentFood = FoodListManagement.GetCurrentFood();
+                        string currentFoodName = FoodListManagement.GetCurrentFoodName();
+                        GameObject duplicateFood = Instantiate(currentFood);
 
-                    // add new child
-                    duplicateFood.transform.parent = placeholderCube.transform;
-                    duplicateFood.transform.position = placeholderCube.transform.position;
-                    duplicateFood.transform.rotation = placeholderCube.transform.rotation;
-                    SaveToStorage(currentFood);
-                    find = true;
+                        // add new child
+                        duplicateFood.transform.parent = placeholderCube.transform;
+                        duplicateFood.transform.position = placeholderCube.transform.position;
+                        duplicateFood.transform.rotation = placeholderCube.transform.rotation;
+                        SaveToStorage(currentFood, currentFoodName);
+                        find = true;
 
-                    StartCoroutine(StartTimer());
+                        StartCoroutine(StartTimer());
+                    }
                 }
             }
         }
@@ -103,18 +106,33 @@ public class PlaceholderManager : MonoBehaviour
     }
 
 
-    private void SaveToStorage(GameObject toBeSaved)
+    private void SaveToStorage(GameObject toBeSaved, string currentFoodName)
     {
         if (ID == 1)
+        {
             MyStorage.firstOrder = toBeSaved.name;
+            MyStorage.firstOrderName = currentFoodName;
+        }
         else if (ID == 2)
+        {
             MyStorage.secondOrder = toBeSaved.name;
+            MyStorage.secondOrderName = currentFoodName;
+        }
         else if (ID == 3)
+        {
             MyStorage.thirdOrder = toBeSaved.name;
+            MyStorage.thirdOrderName = currentFoodName;
+        }
         else if (ID == 4)
+        {
             MyStorage.forthOrder = toBeSaved.name;
+            MyStorage.forthOrderName = currentFoodName;
+        }
         else if (ID == 5)
+        {
             MyStorage.fifthOrder = toBeSaved.name;
+            MyStorage.fifthOrderName = currentFoodName;
+        }
     }
 
 }

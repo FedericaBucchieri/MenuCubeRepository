@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class FoodListManagement : MonoBehaviour
 {
@@ -142,6 +143,13 @@ public class FoodListManagement : MonoBehaviour
     public static GameObject GetCurrentFood()
     {
         return currentFoodPointer;
+    }
+
+    public static string GetCurrentFoodName()
+    {
+        TextMeshPro foodNameObject = currentFoodPointer.transform.Find("FoodName").GetComponent<TextMeshPro>();
+        Debug.Log(foodNameObject.text);
+        return foodNameObject.text;
     }
 
     public void UpdateRating(int rating)
