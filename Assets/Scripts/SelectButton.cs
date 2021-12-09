@@ -6,14 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class SelectButton : MonoBehaviour  
 {
-    public GameObject virtualButton;
     public GameObject foodList;
 
     // Start is called before the first frame update
     void Start()
     {
-        virtualButton.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonPressed(onButtonPressed);
-        virtualButton.GetComponent<VirtualButtonBehaviour>().RegisterOnButtonReleased(onButtonReleased);
     }
 
     // Update is called once per frame
@@ -22,16 +19,11 @@ public class SelectButton : MonoBehaviour
         
     }
 
-    public void onButtonPressed(VirtualButtonBehaviour vb)
+    public void onButtonPressed()
     {
         string currentCategoryName = CategoriesListManagement.GetCurrentCategoryName();
         SceneManager.LoadScene(currentCategoryName + "Scene");
     }
 
 
-    public void onButtonReleased(VirtualButtonBehaviour vb)
-    {
-        Debug.Log("Virtual button released");
-       
-    }
 }
