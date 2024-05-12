@@ -5,6 +5,3 @@
 ![Image1](Images/4.png)
 ![Image1](Images/5.png)
 ![Image1](Images/6.png)
-![Image1](Images/7.png)
-![Image1](Images/8.gif)
-![Image1](Images/9.gif)
